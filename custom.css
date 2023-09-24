@@ -1,0 +1,580 @@
+﻿/* Adjust Margins */
+
+:root {
+
+  --gap-body-top: 20px;
+  --gap-body-right: 20px;
+  --gap-body-bottom: 20px;
+  --gap-body-left: 20px;
+  --module-background: rgb(255, 255, 255);
+  --module-shadow: 0 0 10px rgba(0,0,0,.5)
+  }
+  
+/* Background */
+
+.region.fullscreen.below {
+    background-image: url('./woodbackground.jpg');  /* Adjust the path to your image */
+    background-size: cover;  
+    background-repeat: no-repeat; 
+    background-position: center center; 
+}
+
+.region.fullscreen.below::before {
+    content: "";  /* Necessary for the pseudo-element to display */
+    position: absolute;  /* Absolute positioning relative to the parent */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);  /* Semi-transparent black. Adjust the 0.3 value to increase or decrease dimming */
+    pointer-events: none;  /* Ensures the overlay doesn't interfere with any interactions */
+}
+
+/* Top Bar Formatting */
+.region.top_bar {
+	background-color: #D5D5D5;
+	width: 100%;
+}
+
+.region.top.left {
+  width: 40vw;
+  box-shadow: none; 
+  }
+  
+.region.top.right {
+  width: 25%; 
+  }
+
+  .region.middle.center {
+    height: 100vh;
+    width: 58vw;
+    position: absolute;
+    left: 40vw;
+    display: flex;
+    align-items: center; 
+    padding-right: 10px; 
+}
+
+.region.middle.center > .container {
+    width: 100%; /* Ensure the container takes the full width of its parent */
+    display: flex; /* Use flexbox for the container as well */
+    justify-content: flex-start; /* Start child elements from the left */
+}
+
+.region.lower.third {
+	visibility: hidden;
+}
+
+  
+.region.top.right {
+	box-shadow: none;
+	}
+
+.region.top {
+	box-shadow: var(--module-shadow);
+	}
+
+.module.clock-date {
+	padding-top: 5px;
+	background-color: transparent;
+	color: rgba(64, 64, 64 , 1);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  
+	}
+
+.module.clock-time .digital .time {
+	color: rgba(64, 64, 64 , 1);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  
+	}
+	
+.clock-date .digital .date {
+	color: rgba(64, 64, 64 , 1);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  
+	}
+
+.mmm-systemtemperature {
+	position: absolute;
+	width: 39%;
+	text-align: right;
+	padding-top: 0;
+	margin-top: 25px;
+	color: rgba(64, 64, 64 , 1);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  
+	z-index: 2;
+	top: 0;
+	}
+
+/* Refresh button is a transparent overlay to the tmeperatur module that
+   refreshes the Magic Mirror */
+	.mmm-systemtemperature .refresh-button {
+		background: transparent;
+		border: none;
+		position: absolute;
+		top: 0;     
+		right: 0;     
+		width: 25%;   
+		height: 100%;
+		cursor: pointer;
+		z-index: 10;  
+		opacity: 0;  
+	}
+	
+	
+.clock-time {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 40%;
+	z-index: 2;
+	padding: 0px;
+	margin-bottom: 0;
+	background-color: transparent;
+	text-align: center;
+	margin-top: 5px;
+	}
+
+.clock-time .time {
+	font-size: 50px;
+}
+	
+.clock-date {
+	width: 43.7%;
+	text-align: left;
+	padding-left: 10px;
+	margin-top: 15px;
+	margin-bottom:0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	}
+
+.clock-date .date {
+	font-size: 24px;
+}
+
+/* Weather */
+.module.MMM-DarkSkyForecast .module-content {
+  width: 400px;
+  padding: 5px;
+}
+
+
+.module.MMM-DarkSkyForecast {
+	background-image: linear-gradient(to bottom right, rgba(112, 128, 144, 1) 10%, rgba(0, 51, 153, 1));
+	border-radius: 6px;
+	border: 2px solid #C0C0C0;
+	position: absolute !important;
+	top: 80px !important;
+	z-index: 100;
+	width: 400px;
+	padding: 5px 5px 5px 5px;  
+	box-shadow: 0 3px 5px rgba(0,0,0,.5);
+	height: 587px;
+	
+}
+
+.module.MMM-DarkSkyForecast .attribution {
+  display: none; /* Cleans up the display */
+}
+
+.module.MMM-DarkSkyForecast .wrapper.table .forecast-container .forecast-item > span,
+.module.MMM-DarkSkyForecast .wrapper.table .forecast-container .header-row > span {
+	font-size: 110%;
+	color: #d0d0d0; 
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  
+}
+
+.module.MMM-DarkSkyForecast .wrapper.table .forecast-container .forecast-item > span:last-child {
+	text-align: center;
+}
+
+.module.MMM-DarkSkyForecast .current-conditions-wrapper .current.temperature {
+	font-size: 110%;
+}
+
+/* Google Calendar */
+
+.MMM-GoogleCalendar .symbol {
+	display: none;
+	}
+
+.MMM-GoogleCalendar {
+	background: linear-gradient(to bottom right, rgba(64, 64, 64 , 1), rgba(122, 121, 117, 1));
+	border-radius: 10px;
+	padding: 15px;
+	position: absolute !important;
+	top: 80px;
+	left: 425px;
+	width: 445px;
+	height: auto;
+	box-shadow: 0 3px 5px rgba(0,0,0,.5);
+	color: #ffffff; 
+	text-shadow: 1px 1px 2px rgba(255,255,255,0.7);
+	}
+	
+.MMM-GoogleCalendar .title{
+	text-align: left;
+	color: #ffffff;
+	}
+
+.MMM-GoogleCalendar .time {
+	color: #ffffff;
+}
+
+.MMM-GoogleCalendar .header {
+	color: #ffffff;
+	font-size: 120%;
+}
+
+.MMM-GoogleCalendar .module-header {
+	font-size: 130%;
+	text-align: center;
+	font-family: "Caveat", "sans-serif";
+	font-style: italic;
+	padding-bottom: 12px;
+	border-bottom: 1px solid #aaa;
+	color: #ffffff;
+	}
+
+/* Todoist */
+/* Not currently being used but displays tasks on a postIt note themed square */
+
+.MMM-Todoist {
+    background: linear-gradient(to bottom right, #e6c626 30%, #FFEB3B);
+    border: 2px solid #FFC107; 
+    border-radius: 6px;
+    padding: 15px;
+    position: absolute !important;
+    top: 510px;
+    left: 425px;
+    width: 445px;
+    height: 30px;
+    box-shadow: 0 3px 5px rgba(0,0,0,.5);
+    color: #00008B;  /* Dark blue text color for the list */
+	position: relative; /* Ensure this is set */
+}
+
+.MMM-Todoist .module-header {
+    text-align: center;
+    font-size: 130%;
+    font-family: "Caveat-Regular", "cursive", "sans-serif";  
+    font-style: italic;
+    color: #e03424; /* #00008B;   Dark blue text color for the header */
+	border: none;
+}
+
+.MMM-Todoist.hide-module {
+    display: none !important;
+}
+
+.MMM-Todoist .light {
+	visibility: hidden;
+}
+
+.MMM-Todoist .title,
+.MMM-Todoist .bright,
+.MMM-Todoist .dueDate {
+    color: #00008B; /* Dark blue */
+} 
+
+/* Travel Times */
+.MMM-TravelTimes,
+.MMM-TravelTimes .bright,
+.MMM-TravelTimes .title {
+    color: white;
+}
+
+/* Position main module container */
+.MMM-TravelTimes {
+    position: absolute;
+    top: 200px;
+    left: 225px;
+    display: flex;
+}
+
+/* Hide the module header */
+.MMM-TravelTimes .module-header {
+    display: none;
+}
+
+.MMM-TravelTimes .module-content {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.MMM-TravelTimes .commute-time {
+    font-size: 32px;  
+    display: inline-block;
+}
+
+.MMM-TravelTimes .commute-label {
+    font-size: 18px;  
+}
+
+/* Style for individual boxes (car and train) */
+.MMM-TravelTimes > div {
+    background: linear-gradient(to bottom right, rgba(64, 64, 64 , 1), rgba(122, 121, 117, 1));
+   /* border: 1px solid #E0E0E0;*/
+    border-radius: 6px;
+    padding: 10px 20px;
+    width: 165px;
+    height: auto;
+    box-shadow: 0 3px 5px rgba(0,0,0,.5);
+    font-family: "Arial", sans-serif;
+    color: white;
+    font-size: 24px;
+    margin-right: 10px; /* Space between the two boxes */
+    margin-top: -10px;  /* Negative margin to offset the vertical position */
+    margin-left: -10px; /* Negative margin to offset the horizontal position */
+}
+
+/* Icon styles */
+.MMM-TravelTimes .fa {
+    color: white;
+    margin-right: 10px; /* Space between icon and text */
+}
+
+/* Adjust spacing between the two boxes */
+.MMM-TravelTimes .transit {
+    margin-left: 10px;
+}
+
+/* Classes exist for pre-programmed on time, delayed, very delayed times */
+.MMM-TravelTimes .on-time .commute-time {
+   /* color: #4CAF50;*/
+    color: white;
+}
+
+.MMM-TravelTimes .slight-delay .commute-time {
+    color: #FF9800;
+}
+
+.MMM-TravelTimes .long-delay .commute-time {
+    color: #F44336;
+}
+
+/* Google Photos */
+
+#GPHOTO_INFO {
+	display:none;
+}
+
+.MMM-GooglePhotos {
+	position: absolute;
+	top: 690px !important;
+	left: 0px !important;
+	height: 130px !important;
+	max-width: 445px;
+	box-shadow: 0 3px 5px rgba(0,0,0,.5);
+	}
+
+#GPHOTO_BACK {
+	background-image: linear-gradient(to bottom right, rgba(64, 64, 64 , 1), rgba(122, 121, 117, 1)) !important;
+	filter: none;
+	border-radius: 6px;
+	box-shadow: 0 3px 5px rgba(0,0,0,.5);
+	width: 900px;
+	height: 570px;
+}
+
+
+
+/* CalendarExt3  */
+
+.module.MMM-CalendarExt3 {
+    background-color: rgba(224, 224, 220, 0.9) !important;
+    padding: 20px;
+    box-shadow: 0 6px 10px rgba(0,0,0,.5);
+    border-radius: 6px;
+    flex-grow: 1; /* Allow the module to grow and take up available space */
+	min-width: 0;
+	width: calc(100% - 40px); /* Subtracting double the padding for left and right */
+	max-height: calc(100vh - 40px); /* Set a maximum height */
+    margin: 10px 0; /* Add top and bottom margins */
+}
+
+.CX3 .cell {
+	 outline: 1px solid rgb(255, 255, 255);
+	
+}
+
+.CX3 .weekday,
+.CX3 .weekday_0:not(.cellHeader),
+.CX3 .weekday_6:not(.cellHeader) {
+	color: rgba(64, 64, 64, 0.8);
+	margin-bottom: 5px;
+}
+ 
+.CX3 .weekGrid {
+	outline: none;
+	border: none;
+	}
+	
+.CX3 .weekGridRow {
+	outline: none;
+	border: none;
+	}
+ 
+.CX3 .cell {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+.CX3 .event .headline.useSymbol .symbol {
+  display: none;
+	}
+
+.CX3 .cw {
+	display: none;
+	}
+	
+.CX3 .cell.today {
+	border: none;
+	box-shadow: 0 0 10px rgba(0,0,0,.5);
+}
+
+.CX3 .cell.today .cellDate.month {
+	display: none;
+	}
+
+/* Change format and color of Month Title */
+.MMM-CalendarExt3 .module-header {
+	font-family: "Verdana", "sans-serif";
+	font-size: 80px;
+	text-align: center;
+	border-style: none;
+	Color: rgba(224, 60, 49, .9);
+	margin-bottom: 3px;
+	padding: 12px 0 10px 0;
+	height: 70px !important;
+	display: flex !important;
+	align-items: center !important;	
+}
+
+ /* Change color and circle each day's header */
+.CX3 .cell .cellHeader {
+	padding: 0px 6px 3px;
+	font-weight: bold;
+	color: rgb(64, 64, 64) !important;
+	text-align: left;
+	font-size: 28px;
+	margin-bottom: 5px;
+	position: relative;
+	}
+
+.CX3 .cellHeader .eventButton {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	z-index: 1;
+	width: 60px;
+	height: 30px;
+  }
+
+/* Change color of today header */	
+.CX3 .today {
+  font-weight: bold;
+  color: #000;
+  background-color: #66CC99;
+	border-radius: 6px;
+	border: 2px solid rgba(64, 64, 64, .8);
+	color: #66CC99;
+}
+
+.CX3 .today .cellDate{
+  background-color: #66CC99;
+  padding: 0px 0px 2px;
+}
+
+.CX3 .weekday_0.cellHeader {
+  color: var(--defaultcolor);
+}
+
+.CX3 .weekday_6.cellHeader {
+  color: var(--defaultcolor);
+}
+
+.CX3 .event {
+	background-color: rgba(64, 64, 64, 65%);
+	border-radius: 6px;
+	border: 2px solid #F5F5F5;
+	height: calc(var(--font-size) + 4px);
+	padding: 6px 6px;
+	font-weight: bold;
+	margin-top: 2px;
+	}
+	
+.CX3 .event.passed {
+  filter: brightness(0.6) grayscale(0.33);
+}
+
+.CX3 .event.Jenn.passed .time.startTime,
+.CX3 .event.Jenn.passed .title,
+.CX3 .event.fullday.passed .title,
+.CX3 .event.multiday.passed .title {
+  color: rgba(64, 64, 64, .8);
+}
+
+.CX3 .event.calendar_us_holiday.passed .title,
+.CX3 .event.calendar_us_holiday.current .title {
+	color: white;
+ }
+
+ .CX3 .event.fullday,
+ .CX3 .event.multiday {
+	border: 1px solid rgba(64, 64, 64, .8);
+ }
+
+.CX3 .event.Heidi,
+.CX3 .event.Heidi.fullday,
+.CX3 .event.Heidi.multiday {
+	background-color: rgba(255, 20, 147, 65%);
+	border: 2px solid rgba(255, 20, 147, 65%);
+	color: rgb(255, 255, 255);
+}
+
+.CX3 .event.Sara,
+.CX3 .event.Sara.fullday,
+.CX3 .event.Sara.multiday {
+	background-color: rgba(100, 255, 218, 65%); 
+	border: 2px solid rgba(29, 233, 182, 65%);
+	color: rgb(0, 0, 0);
+}
+
+.CX3 .event.Jenn,
+.CX3 .event.Jenn.fullday,
+.CX3 .event.Jenn.multiday {
+	background-color: rgba(218, 112, 214, 65%); 
+	border: 2px solid rgba(186, 85, 211, 65%);
+	color: rgb(0, 0, 0);
+}
+
+.CX3 .event.Sara.time.startTime,
+.CX3 .event.Sara.fullday.time.startTime,
+.CX3 .event.Sara.multiday.time.startTime {
+	color: rgb(0, 0, 0);
+}
+
+.CX3 .event.Jenn.time.startTime,
+.CX3 .event.Jenn.fullday.time.startTime,
+.CX3 .event.Jenn.multiday.time.startTime {
+	color: rgb(0, 0, 0);
+}
+
+.CX3 .event.Jenn:not(.fullday) .headline .time,
+.CX3 .event.Sara:not(.fullday) .headline .time {
+	color: rgb(0,0,0);	
+}
+
+/* Simple Keyboard */
+.MMM-SimpleKeyboard .simple-keyboard {
+	position: absolute;
+	z-index: 9999;
+	left: 740px;
+	top: 800px;
+	width: 80%      
+}
+
